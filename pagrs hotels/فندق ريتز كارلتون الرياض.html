@@ -1,0 +1,1567 @@
+
+<!DOCTYPE html>
+<html id="main_html" dir="rtl">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Language" content="en-us"/>
+    <meta name="robots" content="noindex, nofollow" />
+    <!-- <meta name="description" content=" />
+    <meta name="keywords" content=" قصر الناصرية للاحتفالات في الرياض السعودية"/> -->
+    <meta name="csrf-token" content="69SCm3ke9V6tIR0VCBjXbcf9kthcKTyxuYpLUtAs">
+    <title> hotel</title>
+    <link rel="shortcut icon" href="https://wedgizer.com/images/wedgizer-faviconicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@500;600;700&display=swap" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="https://wedgizer.com/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://wedgizer.com/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="https://wedgizer.com/css/style.css" />
+    <script src="https://wedgizer.com/js/jquery.js"></script>
+</head>
+<body  id="arabic_lang1" >
+
+<!-- header -->
+<header class="header_wrap" id="header_wrap">
+   <div class="container">
+      <div class="row">
+      
+                <!--
+                                  <li><a href="https://wedgizer.com/en/viewvenue" id="english_lang_button" class="/boomerang">English</a></li>
+                                -->
+                                                  <li><a href="https://wedgizer.com/en/viewvenue?v_id=1"
+                                                     id="english_lang_button" class="/boomerang">English</a></li>
+                              </ul>
+            </div>            
+         </div>
+               </div>      
+   </div>
+</header>
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+             }
+        });
+        function load_unsean_notifiaction(){
+            var lng='ar';
+            if(lng=='ar' || lng=='')
+            lng='';
+            else
+            lng='/'+lng;
+             $.ajax({
+                type:'post',
+                url:lng+'/get_notification',
+                dateType:'json',		                   
+                success: function (data)
+                {                    
+                    $('#dropdown-notification').html(data.notifications);
+                    if(data.count)
+                        $('#notification-count').html(data.count);                   
+                },
+	         });
+        }
+        load_unsean_notifiaction();
+</script>
+
+<script>
+
+function login(lang)
+{
+  if(lang=='en')
+    window.location.href = '/'+lang+"/login-customer";
+  else
+   window.location.href = "/login-customer";
+}    
+</script>
+<section id="eidt_profile_banner">
+  <div class="container">
+    <div class="text_logo">
+      <p><img > 
+         <img class="text-logo" ></p>
+    </div>
+  </div>
+</section>
+
+<script>
+ function change_tab(id,page_content,hall_id)
+ {
+   document.getElementById(page_content).innerHTML=document.getElementById(id+"_desc").innerHTML;
+   var hidden_desc = document.getElementsByClassName("all_tab"+hall_id);
+   for (var i = 0; i < hidden_desc.length; ++i)
+    {        
+        document.getElementById(hidden_desc[i].id).className="notselected all_tab"+hall_id;      
+    }
+  document.getElementById(id).className="selected all_tab"+hall_id;
+ }
+</script>
+<script>
+function plusSlides(n,hall_id) {
+  showSlides(slideIndex += n,hall_id);
+  
+}
+
+function currentSlide(n,hall_id) {
+  showSlides(slideIndex = n,hall_id);
+}
+
+function showSlides(n,hall_id) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides"+hall_id);
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  
+  slides[slideIndex-1].style.display = "block";  
+  
+}
+ function viewimg(imagename,hallid)
+    {        
+        
+        document.getElementById("myModal_image"+hallid).style.display = "block";
+        document.getElementById("imageBig"+hallid).src = imagename;
+        $('.imageBig'+hallid).show(); 
+    }
+
+    function closeModal(hallid) {
+        var video = document.getElementById('vedeoBig'+hallid);
+        video.setAttribute("src", '');       
+        video.load();
+        $('.vedeoBig'+hallid).hide(); 
+        document.getElementById("myModal_image"+hallid).style.display = "none";
+    }
+
+    function imageview(imagename,id)
+    {
+        $('.vedeoBig'+id).hide();  
+        document.getElementById("imageBig"+id).src = imagename;
+        $('.imageBig'+id).show(); 
+       
+    }
+    function vedeoview(vedeoname,id)
+    {
+        $('.vedeoBig'+id).show();  
+        $('.imageBig'+id).hide(); 
+        var video = document.getElementById('vedeoBig'+id);
+        video.setAttribute("src", vedeoname);       
+        video.load();
+    }
+</script>
+<style>
+    #eidt_profile_banner {
+    background: url("/me.jpg");
+    height: 200px;
+    background-position: center;
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+}
+.user_head {
+    display: none;
+}
+.header_wrap {
+    display: none;
+    padding: 11px 0;
+    background: #fff;
+    box-shadow: 1px 6px 22px rgb(128 128 128 / 18%);
+    border-bottom: 12px solid #f14077;
+}
+    .rating_box li i {
+        color: #f1c909;
+        margin: 0 0 11px;
+        font-size: 14px;
+    }
+    input {
+    border: 1px solid #eeeeee;
+    box-sizing: border-box;
+    margin: 0px 0px 0px 0px;
+    outline: none;
+    padding: 10px;
+    }
+
+    input[type="button"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    }
+
+    .input-group {
+    clear: both;
+    margin: 5px 0;
+    position: relative;
+    }
+
+    .input-group input[type='button'] {
+    background-color: #eeeeee;
+    min-width: 30px;
+    width: auto;
+    transition: all 300ms ease;
+    }
+
+    .input-group .button-minus,
+    .input-group .button-plus {
+    font-weight: bold;
+    height: 30px;
+    padding: 0;
+    width: 25px;
+    position: relative;
+    }
+
+    .input-group .quantity-field {
+    position: relative;
+    height: 30px;
+    left: 0px;
+    text-align: center;
+    width: 55px;
+    display: inline-block;
+    font-size: 13px;
+    margin: 0px 0px 0px 0px;
+    resize: vertical;
+    }
+
+    .button-minus-extramenu,
+    .button-plus-extramenu{
+    font-weight: bold;
+    height: 25px;
+    padding: 0;
+    width: 25px;
+    position: relative;
+    }
+    .extramenu-field {
+    position: relative;
+    height: 25px;
+    left: 0px;
+    text-align: center;
+    width: 55px;
+    display: inline-block;
+    font-size: 13px;
+    margin: 0px 0px 0px 0px;
+    resize: vertical;
+    }
+
+    .button-plus,
+    .button-plus-extramenu {
+    left: 0px;
+    }
+
+    input[type="number"] {
+    -moz-appearance: textfield;
+    -webkit-appearance: none;
+    }
+</style>
+<script>
+function incrementValue(fieldName,package_id,hall_id,menu_id,maximum_extra_quantity,item_extra_price) {
+    fieldName=fieldName+package_id+'_'+menu_id;
+    var currentVal = document.getElementById(fieldName).value;
+    if (!isNaN(currentVal)) {
+        if(currentVal<maximum_extra_quantity){
+            document.getElementById(fieldName).value=1*currentVal + 1;
+            var total_val=document.getElementById(fieldName).value*item_extra_price;
+            document.getElementById("toatal_extramenu["+package_id+"]["+hall_id+"]["+menu_id+"]").innerHTML=total_val;  
+            document.getElementById("toatal_extramenu_value["+package_id+"]["+hall_id+"]["+menu_id+"]").value=total_val;
+            $("#currrency_symbol"+package_id+'_'+menu_id).html('ر.س.‏');
+        }else{
+            if(currentVal>maximum_extra_quantity){
+                document.getElementById("toatal_extramenu["+package_id+"]["+hall_id+"]["+menu_id+"]").innerHTML='';
+                document.getElementById("toatal_extramenu_value["+package_id+"]["+hall_id+"]["+menu_id+"]").value='';
+                $("#currrency_symbol"+package_id+'_'+menu_id).html(''); 
+            }
+        }
+        calculateprice(package_id);       
+    } else {
+        document.getElementById(fieldName).value=0;
+        document.getElementById("toatal_extramenu["+package_id+"]["+hall_id+"]["+menu_id+"]").innerHTML='';
+        document.getElementById("toatal_extramenu_value["+package_id+"]["+hall_id+"]["+menu_id+"]").value='';
+        $("#currrency_symbol"+package_id+'_'+menu_id).html(''); 
+    }
+}
+
+function decrementValue(fieldName,package_id,hall_id,menu_id,maximum_extra_quantity,item_extra_price) {
+    fieldName=fieldName+package_id+'_'+menu_id;
+    var currentVal = document.getElementById(fieldName).value;
+    if (!isNaN(currentVal)) {
+        if(currentVal>0){
+            document.getElementById(fieldName).value=1*currentVal - 1;
+            var total_val=document.getElementById(fieldName).value*item_extra_price;
+            //$("#toatal_extramenu["+package_id+"]["+menu_id+"]").html(total_val);  
+            document.getElementById("toatal_extramenu["+package_id+"]["+hall_id+"]["+menu_id+"]").innerHTML=total_val;
+            document.getElementById("toatal_extramenu_value["+package_id+"]["+hall_id+"]["+menu_id+"]").value=total_val;            
+            $("#currrency_symbol"+package_id+'_'+menu_id).html('ر.س.‏');             
+        }else{
+            document.getElementById("toatal_extramenu["+package_id+"]["+hall_id+"]["+menu_id+"]").innerHTML='';
+            document.getElementById("toatal_extramenu_value["+package_id+"]["+menu_id+"]").value='';
+            $("#currrency_symbol"+package_id+'_'+menu_id).html('');  
+        }
+        calculateprice(package_id);
+    } else {
+        document.getElementById(fieldName).value=0;
+        document.getElementById("toatal_extramenu["+package_id+"]["+hall_id+"]["+menu_id+"]").innerHTML='';
+        document.getElementById("toatal_extramenu_value["+package_id+"]["+hall_id+"]["+menu_id+"]").value='';
+        $("#currrency_symbol"+package_id+'_'+menu_id).html(''); 
+    }
+   
+}
+
+function incrementValue_extramenu(fieldName,package_id,hall_id,maximum_extra_menu) {
+    fieldName=fieldName+package_id+'_'+hall_id;
+    var currentVal = document.getElementById(fieldName).value;
+    if (!isNaN(currentVal)) {
+        if(currentVal<maximum_extra_menu){
+            document.getElementById(fieldName).value=1*currentVal + 1;
+        }else{
+           
+        }
+    } else {
+        document.getElementById(fieldName).value=10;       
+    }   
+}
+function degrimentValue_extramenu(fieldName,package_id,hall_id) {
+    fieldName=fieldName+package_id+'_'+hall_id;
+    var currentVal = document.getElementById(fieldName).value;
+    if (!isNaN(currentVal)) {
+        if(currentVal>0){
+            document.getElementById(fieldName).value=1*currentVal - 1;
+        }else{
+           
+        }
+    } else {
+        document.getElementById(fieldName).value=10;       
+    }   
+}
+function ingriment_extramenu(package_id,hall_id,maximum_extra_menu) {    
+    incrementValue_extramenu('extra_menu',package_id,hall_id,maximum_extra_menu);
+}
+function degriment_extramenu(package_id,hall_id) {    
+    degrimentValue_extramenu('extra_menu',package_id,hall_id);
+}
+function ingriment_qty(package_id,hall_id,menu_id,maximum_extra_quantity,item_extra_price) {
+    incrementValue('quantity',package_id,hall_id,menu_id,maximum_extra_quantity,item_extra_price);
+}
+function degriment_qty(package_id,hall_id,menu_id,maximum_extra_quantity,item_extra_price) {
+    decrementValue('quantity',package_id,hall_id,menu_id,maximum_extra_quantity,item_extra_price);
+}
+function calculateprice(package_id){
+   var tax=0,pricewith_tax=0;
+   var venue_tax_percentage = document.getElementsByClassName("venue_tax_percentage");       
+   var menu_total=0,hall_netprice_total=0;
+   $(".toatal_extramenu_value"+package_id).each(function () {
+		if($(this).val() !== "")
+            menu_total=menu_total+1*$(this).val();
+    });
+    var hall_netprice = document.getElementById("hall_netprice["+package_id+"]").value;
+    hall_netprice_total=1*hall_netprice+menu_total;
+    for (var i = 0; i < venue_tax_percentage.length; ++i)
+        {
+            if (typeof venue_tax_percentage[i].value !== "undefined")
+            {
+                tax=1*tax+hall_netprice_total*venue_tax_percentage[i].value/100;   
+            }
+        }
+    pricewith_tax=hall_netprice_total+tax;
+    pricewith_tax = pricewith_tax.toFixed(2);
+    $("#price_with_taxt"+package_id).html(pricewith_tax);   
+}
+</script>
+<style>
+    .booked_meeting li a {
+    vertical-align: middle;
+    margin: 2px 0 0;
+    font-weight: bold;
+    color: #676767;
+    }
+
+    .check_link, .check_link a{
+        all:unset;
+        color:rgb(161, 232, 161);
+        font-size: 12px;
+        font-style: italic;
+        cursor: pointer;
+
+    }
+    .form_box input, .form_box textarea {
+      padding: 10px 10px 0;
+      font-size: 12px;      
+      border: 1px solid #c4c4c4;
+      width: 100%;
+      height: 51px;
+      border-radius: 3px;
+      margin: 0 0 8px;
+    }
+    .car_garage_ser > p, .car_garage_ser a {
+        /*padding: 3px 5px 5px 5px;
+        line-height: 1.2;
+        */
+        margin: -6px 0 11px;        
+        font-size: 12px;
+        font-style: italic;
+        color: #676767;
+    }
+    
+    .user_head a img {
+                    float: left;
+            margin: 5px 0px 0px 10px !important;
+                padding: 0px 0px 0px 0px !important;
+        display: inline-block;       
+        border-radius: 0px;
+        width: 30px !important;
+        height: 30px !important; 
+    }
+    .user_head span {
+                    float: left;
+            margin: 1px 0px 0px 0px !important;
+                padding: 0px 0px 0px 0px !important;
+        display: inline-block;
+       
+        border-radius: 0px;
+        width: 30px !important;
+        height: 30px !important;
+    }
+    .user_head h4 {
+        color: #fff;
+        font-size: 26px !important;
+        font-weight: bold !important;
+    }
+   
+    .shareit{
+              
+        transform: scaleX(-1);
+            }
+    .user_head h4 a {
+        float: right;
+        font-size: 12px;
+        color: #fff;
+        background: linear-gradient(to right, #fff 4%, #fff 78%);
+       /* padding: 5px 11px 3px;*/
+        display: inline-block;
+       /* margin: -2px 0 0;*/
+        border-radius: 2px;
+        width: 30px !important;
+        height: 30px !important; 
+    }
+   
+    .rtl {
+                    direction: rtl;
+            }
+   
+    .tabs_package .tab-content {
+        display: none;
+        /*background: #f5f5f5;*/
+        padding: 15px;
+        border: 1px solid #ea376e;
+    }
+    .user_reviews {
+        padding: 0 0 0 10px !important;
+    }
+    #arabic_lang1 #rating_star .user_reviews {
+        padding: 0 10px 0 0 !important;
+    }
+  
+    .tabcontent {
+        display: none;
+        border: 1px solid #ea376e !important;
+        padding: 10px;
+        /*background: #f5f5f5;
+         border: 1px solid #f5f5f5 !important;
+        */
+    }
+    
+    /*
+    .edit_user_profile ul {
+        background: #f5f5f5;
+        padding: 0;
+        border: 1px dotted #ccc6;
+        border-radius: 4px;
+    }*/
+</style>
+
+<style>
+
+.slider-image {
+    position: absolute;
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    vertical-align:middle;
+}
+
+.img-view{
+    padding:2px;
+    height: 85%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+ }
+
+ .img-view img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+ }
+ .img-view video{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+ }
+.img_container {
+  position: relative;
+}
+.prev_n,
+.next_n {
+ 
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 0px;
+  margin-top: -50px;
+  color: gray;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+
+.next_n {
+            left: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+.prev_n:hover,
+.next_n:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.column {
+  float: left;
+  width: 16.66%;
+}
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1200px;
+}
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+
+<style>
+ #service_form
+    {
+        max-height: inherit;
+        overflow-y: scroll;
+        height: 525px;
+        padding: 15px 15px;       
+    }
+ #facility_form
+    {
+        max-height: inherit;
+        overflow-y: scroll;
+        height: 525px;
+        padding: 15px 15px;       
+    }
+  #menu_form
+    {
+        max-height: inherit;
+    overflow-y: scroll;
+        height: 525px;
+        padding: 10px 0px 0px 15px;       
+    }
+     .image_form
+     {
+        max-height: inherit;
+        overflow-y: scroll;
+         height: 525px;
+    }
+     /* Style the tab content */
+    .tabcontent {
+      display: none;
+      border: 1px solid #f5f5f5;
+      background: #f5f5f5;
+    }
+    .tabs_menu {
+        overflow: visible;
+        box-shadow: none;
+    }
+    .tabs_menu {
+        width: 100%;
+        color: white;
+        overflow: hidden; 
+    }
+    .tabs_menu li
+    {
+        background: #f5f5f5;
+        color: #222;
+        display: inline-block;
+        padding: 4px 15px;
+        cursor: pointer;
+        font-size: 14px;
+                
+            float:right;
+            }
+    .tabs_menu li.active {
+      background: #ee3d73;
+      color: #fff;
+              
+            float:right;
+            }
+    .pricing_table{
+        max-height: inherit;
+        overflow-x: scroll;
+        height: 525px;
+        padding: 10px 0px 0px 15px;      
+    }
+</style>
+
+<style>
+.bui-checkbox__label_new {
+             padding: 2px 2px 2px 2px !important;
+       
+}
+.filter_label_new{
+            padding: 0px 10px 0px 2px !important;
+        
+}
+
+.chk_box{
+    width: 15px !important;
+    height: 15px !important; 
+    margin:0px 0px 0px 0px !important;
+    padding:0px 0px 0px 0px !important;
+}
+.chk_box:after{    
+    border-color: rgb(43, 90, 43) !important;
+    background: rgb(36, 93, 36) !important;
+    }
+.form-check-input{
+    width: 15px !important;
+    height: 15px !important; 
+    margin:0px 0px 0px 0px !important;
+    padding:0px 0px 0px 0px !important;
+}
+.form-check-label{
+ font-size: 12px;
+ padding: 0px 10px 0px 10px !important;
+ margin:0px 10px 0px 10px !important;
+}
+.form-check {
+    padding: 0px 0px 0px 0px !important;
+}
+.sidegapp {
+    padding: 43px 10px 0 0;
+}
+#eidt_profile_banner {
+    display: none;
+}
+
+</style>
+
+    <input type="hidden" class="venue_tax_percentage" id="venue_tax_percentage1" value="15">
+
+
+        
+   <section class="search_wrap book_success_warp">
+      <div class="container">
+         <div class="row">
+            <div class="col-sm-12 right_contents gappnone">
+               <div class="eidt_profile book_success_info">
+                  <div class="user_head">
+                     <span class="user_cart">
+                        <ul>
+                        <li class="hover_items">
+                            <!--
+                            <img class="shareit" src="/images/shareit.png" alt="Share with" width="30" height="30">
+                            -->
+                            
+                            </div>
+                        </li>
+                        </ul>
+                    </span>
+                    <a href="#" onclick="bookmark('10609,10610,10611')">
+                    <!--
+                        <img src="/images/favorite.png" alt="أضف إلى قائمتي المفضلة" width="30" height="30">
+                    -->
+                    <!-- <img src="/images/favorite_svg.svg" alt="أضف إلى قائمتي المفضلة" width="30" height="30">
+                    </a>
+                                        <ul class="rating_box rltbox">
+                        <li><h4>قصر الناصرية للاحتفالات</h4></li>   
+                        <a style="display: inline-block;" href="javascript:;" onclick="rating(1)">                    
+                                                   
+                                                            <li><i class="fa fa-star-o"></i></li>
+                                                                                                           
+                                                            <li><i class="fa fa-star-o"></i></li>
+                                                                                                           
+                                                            <li><i class="fa fa-star-o"></i></li>
+                                                                                                           
+                                                            <li><i class="fa fa-star-o"></i></li>
+                                                                                                           
+                                                            <li><i class="fa fa-star-o"></i></li>
+                                                                                                        </a>
+                     </ul>
+                     <ul class="rating_box rltbox">
+                        <li><h1>قاعة الناصرية للإحتفالات، الامير بندر بن عبدالعزيز، الرياض السعودية</h1></li>
+                    </ul>
+                  </div>
+                  <div class="row about_regency">
+                     <div class="col-sm-12 edit_user_profile">
+                        <div class="eidt_profile_box rltbox">
+
+                           <div class="user_head_box">
+                              <h4>حول قصر الناصرية للاحتفالات</h4>
+                           </div>
+                        -->
+                           <div class="info_box">
+                              
+                                                                    <div class="show_block1" id="show_block1">
+                                                               <h1   style="text-align: center; font-size: 2rem;">
+                                                                
+                                                                قاعات الزفاف في فندق ريتز كارلتون الرياض
+                                                            </h1>
+                                                               
+                                                                            <!-- <label  style="" ><a href="javascript:void(0)" onclick="show_replay(1)">المزيد</a></label> -->
+                                                                      </div>
+                                                                      <div class="replay_block1" id="replay_block1" style="display:none;">
+                                    
+                                        <label  style="" ><a href="javascript:void(0)" onclick="hide_replay(1)">أقل</a></label>
+                                    </div>
+                                      
+                              </p>                              
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+        
+           
+           
+            <!-- <div class="col-sm-12 right_contents tabs_package details_page gappnone">
+               <div class="eidt_profile">
+                  <ul class="tabs"> -->
+                                                                                              <!-- <li class="tab-link current" data-tab="tab-1-10609">باقة الرجال</li>
+                                                                                                                      <li class="tab-link" data-tab="tab-2-10610">باقة النساء</li>
+                                                                                                                      <li class="tab-link" data-tab="tab-1-2-10611">باقة الرجال و النساء</li>
+                                                                                               -->
+                  </ul>
+
+                                   
+                  
+
+
+
+                  
+                                        <div id="tab-1-10609" class="tab-content current">
+                    
+                    
+                                                    <!--Picture start -->                           
+                                                        
+
+                            <div id="myModal_image1_14" class="modal_image" aria-labelledby="myModalLabel" aria-hidden="true"
+                             style="position: fixed;z-index: 99999;top: 10px;width: 692px;display: none;">                    
+                              <div class="modal-content" style="position: fixed;width: 95%;padding:0px;margin:0px;text-align: center;">
+                                <div class="image_form">
+                                <span  onclick="closeModal('1_14')" style="cursor: pointer;position: static;top: auto;right: 
+                                auto;padding: 8px;font-size: 20px;">أغلق</span>
+                                <div class="img-view"> 
+                                    <img class = "imageBig1_14" id = "imageBig1_14" src="/images/1q.jpg"/>
+                                
+                                    <video style="display:none" autoplay class = "vedeoBig1_14" 
+                                    id = "vedeoBig1_14" controls="controls" preload="metadata">
+                                        <source  type="video/mp4">
+                                    </video>     
+                                </div>
+                                <div class="img-list0">
+                                    <a href="#" class="pr0"><i   class="fa fa-angle-double-right" 
+                                          style="font-size: 55px; color: rgb(83, 136, 83)"></i></a>
+                                    
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <img src="/storage/venueprovider/176/image_picker4902852576038453439.jpg" style="width:75px;height:42px;" onclick = "imageview('/storage/venueprovider/176/image_picker4902852576038453439.jpg','1_14')" />
+                                                                                                                                                            <img src="/storage/venueprovider/176/image_picker3129567596142907795.jpg" style="width:75px;height:42px;" onclick = "imageview('/storage/venueprovider/176/image_picker3129567596142907795.jpg','1_14')" />
+                                                                                                                                                                                                                                        <img src="/storage/venueprovider/176/image_picker3021865999236699759.jpg" style="width:75px;height:42px;" onclick = "imageview('/storage/venueprovider/176/image_picker3021865999236699759.jpg','1_14')" />
+                                                                                                                                                            <img src="/storage/venueprovider/176/image_picker7230133050641348914.jpg" style="width:75px;height:42px;" onclick = "imageview('/storage/venueprovider/176/image_picker7230133050641348914.jpg','1_14')" />
+                                                                                                                                                                                                                                <a href="#" class="ne0"><i   class="fa fa-angle-double-left"  style="font-size: 55px; color: #f14077;"></i></a>                            
+                                </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                                <section class="card card-provider-item" id="contact" style="content-visibility: auto;padding: 101px 30px 20px 25px;">
+                                    <div class="card-content">
+                                        <p class="section__title" style="float: right;">معلومات التواصل</p>
+                                        <ul class="provider-details">
+                                          <li class="hidden-phone provider-details__item-column is-fit-content">
+                                            <span data-track="provider-phone">
+                                            <span class="has-text-weight-bold"><strong>رقم الهاتف:</strong></span>
+                                             <bdi>+966 56***</bdi></span> <!----> <u class="ml-5"></u></li>
+                                             <li class="provider-details__item-column is-fit-content">
+                                                    <!-- <p class="has-text-weight-bold mb-5" style="float: right;">العنوان:</p> -->
+                                                    <p style="float: right;">العنوان:
+                                                        الهدا , طريق مكة , الرياض , السعودية  </p>
+                                                <!-- </li>
+                                                                        <li class="provider-details__item-column is-fit-content"> -->
+                                                    <!-- <p class="has-text-weight-bold mb-5">الإيميل</p>
+                                                    <a class="has-text-primary has-text-weight-bold js-form-trigger" data-track="discount-inforequest" data-provider-id="569" data-provider-name="فور بوينتس شيراتون الرياض خالدية">
+                                                        ارسل ايميل
+                                                        <span class="icon-chevron-right-solid icon-xs"></span>
+                                                    </a> -->
+                                                </li>
+                                                                        <li class="provider-details__item-column">
+                                                    <p class="has-text-weight-bold mb-5"></p>
+                                              <div style="height: 250px">
+                                    <div id="yandex-map" class="provider-map"></div>
+                                    <div class="provider-map__temp-container">
+                                        <img class="provider-map__blurred-image lazy entered loaded" 
+                                        data-src="https://static-maps.yandex.ru/1.x/?lang=tr_TR&amp;
+                                        
+                                        
+                                        l=map&amp;ll=46.712214,24.638035&amp;z=14&amp;pt=46.712214,24.638035,pm2rdl"
+                                         style="object-fit: cover" width="100%" height="250px"
+                                          alt="الذهاب إلى فور بوينتس شيراتون الرياض خالدية"
+                                           data-ll-status="loaded" src="https://static-maps.yandex.ru/1.x/?lang=tr_TR&amp;l=map&amp;ll=46.712214,24.638035&amp;z=14&amp;pt=46.712214,24.638035,pm2rdl">
+                                        <button class="provider-map__button js-yandex-map-load-button"
+                                         data-latitude="24.638035" data-longitude="46.712214" type="button" style="display:flex ;">
+                                            خريطة
+                                        </button>
+                                    </div>
+                                </div>
+                                                </li>
+                                                    </ul>
+                                    </div>
+                                </section>
+
+                                <style>
+                                    .slier-controls .prev, .slier-controls .next {
+    background-color: rgb(95, 150, 95);
+                                    }
+                                    #next:after {
+    content: '>';
+    display: block;
+    position: absolute;
+    right: 13px;
+    top: -7px;
+    color: white;
+    font-size: 56px;
+}
+#prev:before {
+    content: '<';
+    display: block;
+    position: absolute;
+    left: 13px;
+    top: -7px;
+    color: white;
+    font-size: 56px;
+}
+                                </style>
+                                <div class="col-sm-7 sidegapp">                      
+                                   <div class="slider-container">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                                            <div class="mySlides1_14 slider-container" style="display: none;">                                    
+                                            <div id="slide-number" class="slide-number">1/4</div>
+                                            <a href="#" onclick = "viewimg('/storage/venueprovider/176/image_picker4902852576038453439.jpg','1_14')">
+                                            <img class="slider-image" id = "imageBig0" src="../images/32.jpg"></a>
+                                            </div>
+                                                                                                                                                                                                          
+                                            <div class="mySlides1_14 slider-container" style="display: none;">                                    
+                                            <div id="slide-number" class="slide-number">2/4</div>
+                                            <a href="#" onclick = "viewimg('/storage/venueprovider/176/image_picker3129567596142907795.jpg','1_14')">
+                                            <img class="slider-image" id = "imageBig0" src="../images/33.jpg"></a>
+                                            </div>
+                                                                                                                                                                                                                                                                                             
+                                            <div class="mySlides1_14 slider-container" style="display: none;">                                    
+                                            <div id="slide-number" class="slide-number">3/4</div>
+                                            <a href="#" onclick = "viewimg('/storage/venueprovider/176/image_picker3021865999236699759.jpg','1_14')">
+                                            <img class="slider-image" id = "imageBig0" src="../images/31.jpg"></a>
+                                            </div>
+                                                                                                                                                                                                          
+                                            <div class="mySlides1_14 slider-container" style="display: none;">                                    
+                                            <div id="slide-number" class="slide-number" style="color: green;" >4/4</div>
+                                            <a href="#" onclick = "viewimg('/storage/venueprovider/176/image_picker7230133050641348914.jpg','1_14')">
+                                            <img class="slider-image" id = "imageBig0" src="../images/34.jpg"></a>
+                                            </div>
+                                                                                                                                                                                                                                                   </div>
+                                                                        <div class="slier-controls">
+                                        <span id="prev" class="prev" onclick="plusSlides(-1,'1_14')">Previous</span>
+                                        <span id="indicators" class="indicators"  style="color: green;"></span>
+                                        <span id="next" class="next" onclick="plusSlides(1,'1_14')"  
+                                        style="font-size: 55px;">Next</span>
+                                    </div>
+                                                                        <script>
+                                    var slideIndex = 1;
+                                    var hall_id= '1_14';  
+                                    showSlides(slideIndex,hall_id);
+                                    </script>
+
+<section id="capacity" class="card card-provider-item" style="content-visibility: auto">
+    <div class="card-content">
+        <!-- <h2 class="section__title">
+            فور بوينتس شيراتون الرياض خالدية السعة
+        </h2> -->
+        <ul class="columns is-multiline" style="list-style-type: none; text-align:initial;">
+                                    <li class="column is-6 pb-15 pt-0">
+                    <p class="has-text-grey-dark is-block">عدد نجوم الفندق</p>
+                    <p class="has-text-dark has-text-weight-bold">5 نجوم</p>
+                </li>
+                                                <li class="column is-6 pb-15 pt-0">
+                    <p class="has-text-grey-dark is-block">السعر للشخص الواحد</p>
+                    <p class="has-text-dark has-text-weight-bold">550 ريال</p>
+                </li>
+                                                <li class="column is-6 pb-15 pt-0">
+                    <p class="has-text-grey-dark is-block">سعة القاعة</p>
+                    <p class="has-text-dark has-text-weight-bold">800-600 شخص</p>
+                </li>
+                                                <li class="column is-6 pb-15 pt-0">
+                    <p class="has-text-grey-dark is-block">سعة قاعة الطعام</p>
+                    <p class="has-text-dark has-text-weight-bold">800-600 شخص</p>
+                </li>
+                                                <li class="column is-6 pb-15 pt-0">
+                    <p class="has-text-grey-dark is-block">عدد القاعات بالفندق</p>
+                    <p class="has-text-dark has-text-weight-bold">ثلاثة قاعات واكثر</p>
+                </li>
+                                                <li class="column is-6 pb-15 pt-0">
+                    <p class="has-text-grey-dark is-block">كم عدد الغرف في الفندق؟</p>
+                    <p class="has-text-dark has-text-weight-bold">493</p>
+                </li>
+                            </ul>
+    </div>
+</section>
+<style>
+    .card-provider-item {
+    margin-bottom: 15px;
+    overflow: unset;
+}
+.card {
+    color: #1a1a1a;
+    -webkit-box-shadow: 0 0 2px 0 rgb(0 0 0 / 40%);
+    box-shadow: 0 0 2px 0 rgb(0 0 0 / 40%);
+    overflow: auto;
+}
+.card {
+    background-color: #fff;
+    border-radius: .25rem;
+    -webkit-box-shadow: 0 0.5em 1em -0.125em rgb(74 74 74 / 10%), 0 0 0 1px rgb(74 74 74 / 2%);
+    box-shadow: 0 0.5em 1em -0.125em rgb(74 74 74 / 10%), 0 0 0 1px rgb(74 74 74 / 2%);
+    color: #5f5f5f;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+article, aside, figure, footer, header, hgroup, section {
+    display: block;
+}
+* {
+    letter-spacing: 0;
+}
+* {
+    letter-spacing: -.2px;
+}
+*, :after, :before {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+user agent stylesheet
+section {
+    display: block;
+}
+body {
+    line-height: 1.5;
+}
+body {
+    color: #5f5f5f;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+body, button, input, optgroup, select, textarea {
+    font-family: Arial,dejavu sans,verdana,roboto,sans‑serif;
+}
+.card {
+    display: list-item;
+}
+</style>
+<!----------------------------------------------------------------->
+
+<style>
+    card-provider-item {
+    margin-bottom: 15px;
+    overflow: unset;
+}
+.section__title {
+    margin: 0 0 30px!important;
+    color: #1a1a1a!important;
+    font-weight: 700!important;
+    font-size: 20px!important;
+}
+.card-content {
+    padding: 30px;
+}
+.card-content {
+    background-color: rgba(0,0,0,0);
+    padding: 1.5rem;
+}
+.columns:last-child {
+    margin-bottom: -.75rem;
+}
+.columns {
+    margin-left: -.75rem;
+    margin-right: -.75rem;
+    margin-top: -.75rem;
+}
+ul {
+    list-style: none;
+}
+.column.is-6, .column.is-6-tablet {
+    -webkit-box-flex: 0;
+    -ms-flex: none;
+    flex: none;
+    width: 50%;
+}
+.pb-15 {
+    padding-bottom: 15px!important;
+}
+.pt-0 {
+    padding-top: 0!important;
+}
+.column {
+    display: block;
+}
+</style>
+
+
+
+
+                                    <!--Picture end -->
+                                    <section id="features" class="card card-provider-item" style="content-visibility: auto; text-align: initial;">
+                                        <div class="card-content">
+                                            <h2 class="section__title" style="display: flex;">
+                                                 فندق ريتز كارلتون رياض العليا  تفاصيل الخدمة
+                                            </h2>
+                                            <ul class="columns is-multiline" style="list-style-type: none;">
+                                                                                            <li class="column is-6 has-text-weight-bold has-text-dark pb-15 pt-0">
+                                                            <span class="icon-check-solid mr-10"></span>
+                                                            <span>مشرفة قاعة</span>
+                                                        </li>
+                                                                       <li class="column is-6 has-text-weight-bold has-text-dark pb-15 pt-0">
+                                                            <span class="icon-check-solid mr-10"></span>
+                                                            <span>قاعة طعام منفصلة</span>
+                                                        </li>
+                                                                                                                                                                                                                                                                                                                        <li class="column is-6 has-text-weight-bold has-text-dark pb-15 pt-0">
+                                                            <span class="icon-check-solid mr-10"></span>
+                                                            <span>قهوجية للرجال</span>
+                                                        </li>
+                                                                        <li class="column is-6 has-text-weight-bold has-text-dark pb-15 pt-0">
+                                                            <span class="icon-check-solid mr-10"></span>
+                                                            <span>درج للزفة</span>
+                                                        </li>
+                                                                           <li class="column is-6 has-text-weight-bold has-text-dark pb-15 pt-0">
+                                                            <span class="icon-check-solid mr-10"></span>
+                                                            <span>غرفة تجهيز للعروس</span>
+                                                        </li>
+                                                                                                                        <li class="column is-6 has-text-weight-bold has-text-dark pb-15 pt-0">
+                                                            <span class="icon-check-solid mr-10"></span>
+                                                            <span>إمكانية اقامة عدة حفلات في نفس الوقت</span>
+                                                        </li>
+                                                                                                                        <li class="column is-6 has-text-weight-bold has-text-dark pb-15 pt-0">
+                                                            <span class="icon-check-solid mr-10"></span>
+                                                            <span>ليزر</span>
+                                                        </li>
+                                                                                <li class="column is-6 has-text-weight-bold has-text-dark pb-15 pt-0">
+                                                            <span class="icon-check-solid mr-10"></span>
+                                                            <span>بخار</span>
+                                                        </li>
+                                                                                                         <li class="column is-6 has-text-weight-bold has-text-dark pb-15 pt-0">
+                                                            <span class="icon-check-solid mr-10"></span>
+                                                            <span>مشروبات ساخنة وباردة</span>
+                                                        </li>
+                                                       <li class="column is-6 has-text-weight-bold has-text-dark pb-15 pt-0"><br>
+                                                            <span class="icon-check-solid mr-10"></span>
+                                                            <span>كيك الزفاف</span>
+                                                        </li><br>
+                                                                                 <li class="column is-6 has-text-weight-bold has-text-dark pb-15 pt-0">
+                                                            <span class="icon-check-solid mr-10"></span><br>
+                                                            <span>مواقف سيارات</span>
+                                                        </li>
+                                                                  <li class="column is-6 has-text-weight-bold has-text-dark pb-15 pt-0">
+                                                            <span class="icon-check-solid mr-10"></span>
+                                                            <span>التصويرالفوتوغرافي والفيديو</span><br>
+                                                        </li>
+                                                                    <li class="column is-6 has-text-weight-bold has-text-dark pb-15 pt-0">
+                                                            <span class="icon-check-solid mr-10"></span>
+                                                            <span>مساحة خارجية للمناسبات</span><br>
+                                                        </li>
+                                                                <li class="column is-6 has-text-weight-bold has-text-dark pb-15 pt-0">
+                                                            <span class="icon-check-solid mr-10"></span>
+                                                            <span>بوفيه مفتوح</span><br>
+                                                        </li>
+                                                         <li class="column is-6 has-text-weight-bold has-text-dark pb-15 pt-0">
+                                                            <span class="icon-check-solid mr-10"></span>
+                                                            <span>جناح مجاني للعروسين ليلة الزفاف</span><br>
+                                                        </li>
+                                                <li class="column is-6 has-text-weight-bold has-text-dark pb-15 pt-0">
+                                                            <span class="icon-check-solid mr-10"></span>
+                                                            <span>هل يوجد قاعة اجتماعات</span><br>
+                                                        </li>
+                                                                                </ul>
+                                        </div>
+                                    </section>
+                                    <style>
+                                        card-provider-item {
+                                        margin-bottom: 15px;
+                                        overflow: unset;
+                                    }
+                                    .section__title {
+                                        margin: 0 0 30px!important;
+                                        color: #1a1a1a!important;
+                                        font-weight: 700!important;
+                                        font-size: 20px!important;
+                                    }
+                                    .card-content {
+                                        padding: 30px;
+                                    }
+                                    .card-content {
+                                        background-color: rgba(0,0,0,0);
+                                        padding: 1.5rem;
+                                    }
+                                    .columns:last-child {
+                                        margin-bottom: -.75rem;
+                                    }
+                                    .columns {
+                                        margin-left: -.75rem;
+                                        margin-right: -.75rem;
+                                        margin-top: -.75rem;
+                                    }
+                                    ul {
+                                        list-style: none;
+                                    }
+                                    .column.is-6, .column.is-6-tablet {
+                                        -webkit-box-flex: 0;
+                                        -ms-flex: none;
+                                        flex: none;
+                                        width: 50%;
+                                    }
+                                    .pb-15 {
+                                        padding-bottom: 15px!important;
+                                    }
+                                    .pt-0 {
+                                        padding-top: 0!important;
+                                    }
+                                    .column {
+                                        display: block;
+                                    }.sidegapp {
+    padding: 14px 10px 0 0;
+}
+
+                                    </style>
+                                    
+                                    
+                                    
+                                    
+                                                                        <!--Picture end -->
+                                    
+                                                                        <form method="post" name="searched-form10609" id="searched-form10609">
+                                                                        <input type="hidden" name="_token" value="69SCm3ke9V6tIR0VCBjXbcf9kthcKTyxuYpLUtAs">                                    <input type="hidden" id="package_id[10609]" name="package_id[10609]" value="10609">
+                                                                        <input type="hidden" id="hall_id[10609][1]" name="hall_id[10609][1]" value="1">  
+                                                                        <!--Facility Start -->
+                                                                        <div class="row choose_listing_fcl extra_services">
+                                                                        <b>المرافق المتضمنة</b>
+                                                                        <div class="col-sm-12 sidebar bdr_none sidegapp car_garage" id="sidebar_profile">
+                                                                            
+                                                                            <!--
+                                                                                                             
+                                                                                <div class="sidegapp car_garage show_block4-1" id="show_block4-1">
+                                                                                <p>
+                                                                                                                            </p>
+                                                                                </div>
+                                                                                    
+                                                                            -->
+                                                                            <div class="clear_filter">
+                                                                                <h1 style="font-size: 1.5rem; display: flex;" 
+                                                                                >فندق ريتز كارلتون العليا التدابير الوقائية من كوفيد-19</h1>
+                                                                                <div class="row">                                       
+                                                                                                                                                                                                                                              <div class="col-sm-6 sidegapp">
+                                                                                        <div class="filteroptions" 
+                                                                                        style="margin: 0 0 3px;">
+                                                                                          <label class="bui-checkbox">
+                                                                                          
+                                                                                             <input class="bui-checkbox__input js-bui-checkbox__input" 
+                                                                                             type="checkbox" name="checkfacilitiesname[0]"
+                                                                                              id="checkfacilitiesname0" value="3392" checked="checked"
+                                                                                               onclick="return false;" onkeydown="return false;"/>                                      
+                                                                                              <div class="bui-checkbox__label filter_item css-checkbox"> 
+                                                                                                <span class="filter_label"> مراعاة تدابير التباعد الاجتماعي</span>
+                                                                                             </div>
+                                                                                          </label>
+                                                                                          <input type="hidden" id="facilitiesid[1][]" name="facilitiesid[1][3392]" value="1">
+                                                                                        </div>
+                                                                                        </div>
+                                                                                                               <div class="col-sm-6 sidegapp" style="
+                                                                                                                padding: 14px 10px 0 0;" >
+                                                                                        <div class="filteroptions" style="margin: 0 0 3px;">
+                                                                                          <label class="bui-checkbox">
+                                                                                            <input class="bui-checkbox__input js-bui-checkbox__input" type="checkbox" name="checkfacilitiesname[1]" id="checkfacilitiesname1" value="3391" checked="checked" onclick="return false;" onkeydown="return false;"/>                                     
+                                                                                             <div class="bui-checkbox__label filter_item css-checkbox">
+                                                                                                <span class="filter_label">تطهير كامل قبل كل مناسبة</span>
+                                                                                                
+                                                                                             </div>
+                                                                                          </label>
+                                                                                          <input type="hidden" id="facilitiesid[1][]" name="facilitiesid[1][3391]" value="3">
+                                                                                        </div>
+                                                                                        </div>
+                                                                                                                             <div class="col-sm-6 sidegapp" style="
+                                                                                                                             padding: 14px 10px 0 0;">
+                                                                                        <div class="filteroptions" style="margin: 0 0 3px;">
+                                                                                          <label class="bui-checkbox">
+                                                                                            <input class="bui-checkbox__input js-bui-checkbox__input" type="checkbox" name="checkfacilitiesname[2]" id="checkfacilitiesname2" value="3389" checked="checked" onclick="return false;" onkeydown="return false;"/>                                     
+                                                                                             <div class="bui-checkbox__label filter_item css-checkbox">
+                                                                                                <span class="filter_label"> تهوية منتظمة للقاعة</span>
+                                                                                             </div>
+                                                                                          </label>
+                                                                                          <input type="hidden" id="facilitiesid[1][]"
+                                                                                           name="facilitiesid[1][3389]" value="6">
+                                                                                        </div>
+                                                                                        </div>
+                                                                                                                                      <div class="col-sm-6 sidegapp"style="
+                                                                                                                                      padding: 14px 10px 0 0;">
+                                                                                        <div class="filteroptions" style="margin: 0 0 3px;">
+                                                                                          <label class="bui-checkbox">
+                                                                                            <input class="bui-checkbox__input js-bui-checkbox__input" type="checkbox" name="checkfacilitiesname[3]" id="checkfacilitiesname3" value="3388" checked="checked" onclick="return false;" onkeydown="return false;"/>                                     
+                                                                                             <div class="bui-checkbox__label filter_item css-checkbox">
+                                                                                                <span class="filter_label">مسافة واسعة بين الطاولات</span>
+                                                                                             </div>
+                                                                                          </label>
+                                                                                          <input type="hidden" id="facilitiesid[1][]" name="facilitiesid[1][3388]" value="7">
+                                                                                        </div>
+                                                                                        </div>
+                                                                                                                              <div class="col-sm-6 sidegapp" style="
+                                                                                                                              padding: 14px 10px 0 0;">
+                                                                                        <div class="filteroptions" style="margin: 0 0 3px;">
+                                                                                          <label class="bui-checkbox">
+                                                                                            <input class="bui-checkbox__input js-bui-checkbox__input" type="checkbox" name="checkfacilitiesname[4]" id="checkfacilitiesname4" value="3387" checked="checked" onclick="return false;" onkeydown="return false;"/>                                     
+                                                                                             <div class="bui-checkbox__label filter_item css-checkbox">
+                                                                                                <span class="filter_label"> قياس الحرارة عند المدخل</span>
+                                                                                             </div>
+                                                                                          </label>
+                                                                                          <input type="hidden" id="facilitiesid[1][]" name="facilitiesid[1][3387]" value="12">
+                                                                                        </div>
+                                                                                        </div>
+                                                                                                                            <div class="col-sm-6 sidegapp" style="
+                                                                                                                            padding: 14px 10px 0 0;">
+                                                                                        <div class="filteroptions" style="margin: 0 0 3px;">
+                                                                                          <label class="bui-checkbox">
+                                                                                            <input class="bui-checkbox__input js-bui-checkbox__input" type="checkbox" name="checkfacilitiesname[5]" id="checkfacilitiesname5" value="3386" checked="checked" onclick="return false;" onkeydown="return false;"/>                                     
+                                                                                             <div class="bui-checkbox__label filter_item css-checkbox">
+                                                                                                <span class="filter_label"> تزويد طاقم الخدمة بالقفازات والأقنعة</span>
+                                                                                             </div>
+                                                                                          </label>
+                                                                                          <input type="hidden" id="facilitiesid[1][]" name="facilitiesid[1][3386]" value="13">
+                                                                                        </div>
+                                                                                        </div>
+                                                                                                                               
+                                                                                </div>                                    
+                                                                             </div>
+                                                                          </div>
+                                                                       </div>
+                                    
+                                            <!--Facility end -->
+                                      
+    <script> 
+        function BookPay(id)
+        {
+            var lng='ar';
+            if(lng=='ar' || lng=='')
+            lng='';
+            else
+            lng='/'+lng;
+  
+            
+            form=document.getElementById('searched-form'+id);
+            form.action=lng+'/booking?p_id='+id;
+            form.submit();
+        }
+        function BookMeeting(id)
+        {
+            var lng='ar';
+            if(lng=='ar' || lng=='')
+            lng='';
+            else
+            lng='/'+lng;
+            form=document.getElementById('searched-form'+id);
+            form.action=lng+'/meeting?p_id='+id;
+            form.submit();
+        }
+
+        function select_package(id){  
+            var clist=document.getElementsByClassName("chk_package");
+            if (document.getElementById("package_list"+id).checked==true){                
+                for (var i = 0; i < clist.length; ++i) { clist[i].checked = ""; }
+            }
+            document.getElementById("package_list"+id).checked = true;
+        }
+        function contact(v_id)
+        {
+            var lng='ar';
+            if(lng=='ar' || lng=='')
+            lng='';
+            else
+            lng='/'+lng;
+            var url=lng+'/contact?v_id='+v_id;
+            window.location.href=url;    
+        }
+        function rating(venue_id)
+        {
+            var lng='ar';
+            if(lng=='ar' || lng=='')
+            lng='';
+            else
+            lng='/'+lng;
+            window.location.href = lng+"/rate-review-list?venue_id="+venue_id;       
+        }
+         
+   </script>
+
+  
+   
+   <script>
+    function initMap() {
+        var lng='ar';
+            if(lng=='ar' || lng=='')
+            lng='';
+            else
+            lng='/'+lng;
+        var lat=document.getElementById("latitude").value;
+        var lun=document.getElementById("longitude").value;
+        var map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 10,
+            center:new google.maps.LatLng(lat,lun),
+        });
+        var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(lat,lun),
+            map: map,                                                        
+            title: "Wedgizer"
+        });
+        var url=lng+'/view-map?lat='+lat+'&lun='+lun;
+        google.maps.event.addListener(map, "click", function(){
+            window.open(url, '_blank');
+        });
+    }
+   </script>
+  <script>
+function clickHandle(evt, animalName) {
+  let i, tabcontent, tablinks;
+  
+  // This is to clear the previous clicked content.
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Set the tab to be "active".
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Display the clicked tab and set it to active.
+  document.getElementById(animalName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+ document.getElementById("default").click();
+ </script>
+
+<script>
+
+    var p_id=10611;
+    var s=2;
+    for (i = 0; i < s; i++) {
+        navigate_img('s'+i+'_'+p_id);
+    }   
+    var k=3;
+    for (i = 0; i < k; i++) {
+        navigate_img(i);
+    }
+    function navigate_img(hallid)
+    {
+    //var hallid=0
+    var start = 0;
+    var nb = 5;
+    var end = start + nb;
+    var length = $('.img-list'+hallid+' img').length;
+    var list = $('.img-list'+hallid+' img');
+    
+    list.hide().filter(':lt('+(end)+')').show();
+    
+    
+    $('.pr'+hallid+', .ne'+hallid).click(function(e){
+       e.preventDefault();
+       console.log(start);
+       if( $(this).hasClass('pr'+hallid) ){
+           start -= nb;
+       } else {
+           start += nb;
+       }
+        
+       if( start < 0 || start >= length ) start = 0;
+       end = start + nb;        
+       console.log(start);
+       console.log(end);
+       
+       if( start == 0 ) list.hide().filter(':lt('+(end)+')').show();
+       else list.hide().filter(':lt('+(end)+'):gt('+(start-1)+')').show();
+    });
+    }
+</script>
+
+<script>
+    function show_replay(commend_id)
+    {   
+        var show_block = document.getElementById("show_block"+commend_id);
+        var replay_block = document.getElementById("replay_block"+commend_id);
+        show_block.style.display = "none";
+        replay_block.style.display = "";
+    }
+    function hide_replay(commend_id)
+    {
+        var show_block = document.getElementById("show_block"+commend_id);
+        var replay_block = document.getElementById("replay_block"+commend_id);
+        show_block.style.display = "";
+        replay_block.style.display = "none";
+    }
+</script>
+<script>
+    function bookmark(s_list)
+    {
+        var lng='ar';
+        if(lng=='ar' || lng=='')
+        lng='';
+        else
+        lng='/'+lng;
+        var url=lng+'/add-bookmark?s_list='+s_list;
+        window.location.href=url;    
+    } 
+    function shareit(s_list,trgt)
+    {
+        var lng='ar';
+        if(lng=='ar' || lng=='')
+        lng='';
+        else
+        lng='/'+lng;
+        var window_size = "width=585,height=511";
+        var url=window.location.host+lng+'/view-venue?s_list='+s_list;
+        if(trgt=='twitter'){            
+            window.open("https://twitter.com/intent/tweet?text="+url, "_blank");   
+            window.open(url, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,' + window_size);
+            return false;
+        }
+        if(trgt=='facebook'){
+            window.open("https://www.facebook.com/sharer/sharer.php?u="+url, "_blank");   
+        }
+        if(trgt=='mail'){
+            window.open("mailto:?subject=&body="+url, "_blank"); 
+        }
+        if(trgt=='instagram'){
+            window.open("https://www.instagram.com/?url="+url, "_blank");   
+        }
+        if(trgt=='linkedin'){
+            window.open("https://www.linkedin.com/sharing/share-offsite/?url="+url, "_blank");   
+        }
+    }       
+    
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDru28KkyrHTs4wtBpRiX2fjat1QJcfPog&callback=initMap&libraries=&v=weekly&language=AR" defer></script>  
+<!-- top story -->
+
+<!-- footer -->
+<footer class="footer_wrap">
+
+
+<!-- Google tag (gtag.js) -->
+<!--
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RY7DE6XCC7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-10984894628');
+  gtag('config', 'G-RY7DE6XCC7');
+</script>
+-->
+<!-- Global site tag (gtag.js) - Google Ads: 10984894628 -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-10984894628"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-10984894628');
+  gtag('config', 'G-RY7DE6XCC7');
+</script>
+
+<script>
+    function show_links(id)
+    {  
+      var more_links_block = document.getElementById("more_links_block"+id);
+      var less_links_block = document.getElementById("less_links_block"+id);
+      more_links_block.style.display = "";
+      less_links_block.style.display = "none";
+      
+    }
+    function hide_links(id)
+    {
+      var more_links_block = document.getElementById("more_links_block"+id);
+      var less_links_block = document.getElementById("less_links_block"+id);
+      more_links_block.style.display = "none";
+      less_links_block.style.display = "";
+    }
+</script>
+<style>
+   .mob {
+    display: inline-block;
+    font-family: 'Catamaran', sans-serif;
+    color: #000;
+    line-height: 1.4;
+    width: 70%;
+    padding: 0px 5px 0px 0px;
+    font-weight: 400;
+    direction: ltr !important;
+  }
+  </style>
+<script src="https://wedgizer.com/js/bootstrap.min.js"></script>
+<script src="https://wedgizer.com/js/custom.js"></script>
+</body>
+</html>
